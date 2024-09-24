@@ -1,0 +1,15 @@
+from youtube_transcript_api import YouTubeTranscriptApi
+
+def get_video_transcript(video_id):
+    # Fetch the transcript for the video
+    transcript = YouTubeTranscriptApi.get_transcript(video_id)
+    
+    # Join the transcript chunks into a single text
+    transcript_text = ' '.join([entry['text'] for entry in transcript])
+    
+    return transcript_text
+
+# Example usage
+video_id = 'your_video_id_here'
+transcript = get_video_transcript(video_id)
+print(transcript)
